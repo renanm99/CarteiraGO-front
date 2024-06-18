@@ -12,10 +12,11 @@ export function LoginInput() {
       mode: "cors",
       credentials: "include",
     });
-
+    /*
     if (response.status === 401) {
       window.location.href = "/signin";
     }
+      */
 
     if (response.status === 200) {
       window.location.href = "/";
@@ -33,7 +34,10 @@ export function LoginInput() {
       // Do a bit of work to convert the entries to a plain JS object
       const value = Object.fromEntries(dados.entries());
 
-      const ok = await postLogin(value.email, value.password);
+      const ok = await postLogin(
+        value.email.toString(),
+        value.password.toString()
+      );
       if (!ok) {
         const alert = document.getElementsByName("alert-warning")[0];
         if (alert.classList.contains("hidden")) {

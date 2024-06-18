@@ -18,15 +18,16 @@ export class User {
   }
 
   async postAccounts(user: User) {
-    await fetch("http://localhost:8080/user?userid=1", {
+    const response = await fetch("http://localhost:8080/user", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(user),
     });
+    return response;
   }
 
   async updateAccounts(user: User) {
-    await fetch("http://localhost:8080/user?userid=1&id=" + user.Id, {
+    await fetch("http://localhost:8080/user", {
       method: "PUT",
       mode: "cors",
       body: JSON.stringify(user),
@@ -35,7 +36,7 @@ export class User {
 
   async deleteAccounts(id: number) {
     console.log(id);
-    await fetch("http://localhost:8080/user?userid=1&id=" + id, {
+    await fetch("http://localhost:8080/user", {
       method: "DELETE",
       mode: "cors",
     });

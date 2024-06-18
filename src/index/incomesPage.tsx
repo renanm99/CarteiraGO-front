@@ -11,7 +11,7 @@ export function IncomesPage() {
       </div>
       <div className="md:block translate-x-0 md:translate-x-40 h-full md:w-10/12">
         {/*<TableShowAccounts accountType="expense" />*/}
-        <TableShowAccounts accountType="income" />
+        <TableShowAccounts accountType="incomes" />
         {/*
         <TableShowExpenses />
         <TableShowIncomes />

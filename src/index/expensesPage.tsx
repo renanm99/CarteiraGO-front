@@ -12,7 +12,7 @@ export function ExpensesPage() {
       </div>
       <div className="md:block translate-x-0 md:translate-x-40 h-full md:w-10/12">
         {/*<TableShowAccounts accountType="expense" />*/}
-        <TableShowAccounts accountType="expense" />
+        <TableShowAccounts accountType="expenses" />
         {/*
         <TableShowExpenses />
         <TableShowIncomes />

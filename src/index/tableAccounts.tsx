@@ -1,7 +1,6 @@
 import { Alert, Table } from "flowbite-react";
 import React, { useEffect, useState } from "react";
-import { Expense } from "./model/expense";
-import { Income } from "./model/income";
+import { Account } from "./model/account";
 
 interface account {
   Id: number;
@@ -12,17 +11,11 @@ interface account {
   Value: number;
 }
 
-export function TableShowAccounts({ accountType }) {
+export function TableShowAccounts({ accountType }: { accountType: string }) {
   const [accounts, setAccounts] = useState<account[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  let account: Expense | Income;
-
-  if (accountType == "expense") {
-    account = new Expense();
-  } else if (accountType == "income") {
-    account = new Income();
-  }
+  const account = new Account(accountType);
 
   useEffect(() => {
     async function fetchData() {
