@@ -1,8 +1,13 @@
+class Dashboard {
+  Category: string = "";
+  Value: number = 0.0;
+}
+
 export class Account {
   Id: number = 0;
   UserId: number = 0;
   Title: string = "";
-  Type: string = "";
+  Category: string = "";
   Description: string = "";
   Value: number = 0.0;
 
@@ -18,12 +23,13 @@ export class Account {
       method: "GET",
       mode: "cors",
       credentials: "include",
+      headers: { Account: this.Account },
     });
     const data = await response.json();
     if (response.status === 401) {
       window.location.href = "/signin";
     }
-    return data[this.Account];
+    return data["accounts"];
   }
 
   async postAccounts(account: Account) {
@@ -49,7 +55,22 @@ export class Account {
       method: "DELETE",
       mode: "cors",
       credentials: "include",
+      headers: { Account: this.Account },
       body: JSON.stringify({ Id: id }),
     });
+  }
+
+  async getDashboard(): Promise<Dashboard[]> {
+    const response = await fetch("http://localhost:8080/Dash", {
+      method: "GET",
+      mode: "cors",
+      credentials: "include",
+      headers: { Account: this.Account },
+    });
+    const data = await response.json();
+    if (response.status === 401) {
+      window.location.href = "/signin";
+    }
+    return data["dashboard"];
   }
 }

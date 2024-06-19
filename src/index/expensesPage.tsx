@@ -1,4 +1,3 @@
-import { postLogin } from "./model/user";
 import { Sidepanel } from "./sidepanel";
 import { TableShowAccounts } from "./tableAccounts";
 

@@ -6,9 +6,10 @@ interface account {
   Id: number;
   UserId: number;
   Title: string;
-  Type: string;
+  Category: string;
   Description: string;
   Value: number;
+  Account: string;
 }
 
 export function TableShowAccounts({ accountType }: { accountType: string }) {
@@ -43,7 +44,7 @@ export function TableShowAccounts({ accountType }: { accountType: string }) {
     if (
       newData.Title !== "" &&
       newData.Description !== "" &&
-      newData.Type !== "" &&
+      newData.Category !== "" &&
       newData.Value > 0
     ) {
       setAccounts([...accounts, newData]);
@@ -79,8 +80,9 @@ export function TableShowAccounts({ accountType }: { accountType: string }) {
       UserId: 0,
       Title: data[0],
       Description: data[1],
-      Type: data[2],
+      Category: data[2],
       Value: Number(data[3]),
+      Account: account.Account,
     };
 
     const editAccount = [
@@ -125,7 +127,7 @@ export function TableShowAccounts({ accountType }: { accountType: string }) {
                     {account.Title}
                   </Table.Cell>
                   <Table.Cell>{account.Description}</Table.Cell>
-                  <Table.Cell>{account.Type}</Table.Cell>
+                  <Table.Cell>{account.Category}</Table.Cell>
                   <Table.Cell>R${account.Value}</Table.Cell>
                   <Table.Cell>
                     <a
@@ -186,7 +188,7 @@ export function TableShowAccounts({ accountType }: { accountType: string }) {
                     <input
                       name={"editLine-" + account.Id}
                       className="border-2 w-full md:max-w-full"
-                      placeholder={account.Type}
+                      placeholder={account.Category}
                     />
                   </Table.Cell>
                   <Table.Cell>
@@ -243,7 +245,18 @@ export function TableShowAccounts({ accountType }: { accountType: string }) {
               <input className="border-2 w-full md:max-w-full" name="newLine" />
             </Table.Cell>
             <Table.Cell>
-              <input className="border-2 w-full md:max-w-full" name="newLine" />
+              <input
+                list="category-name"
+                className="border-2 w-full md:max-w-full"
+                name="newLine"
+              />
+              <datalist id="category-name">
+                {[...new Set(accounts.map((data) => data.Category))].map(
+                  (data) => {
+                    return <option value={data} />;
+                  }
+                )}
+              </datalist>
             </Table.Cell>
             <Table.Cell>
               <input className="border-2 w-full md:max-w-full" name="newLine" />
@@ -262,8 +275,9 @@ export function TableShowAccounts({ accountType }: { accountType: string }) {
                     UserId: 1,
                     Title: data[0],
                     Description: data[1],
-                    Type: data[2],
+                    Category: data[2],
                     Value: Number(data[3]),
+                    Account: account.Account,
                   });
                 }}
                 className="cursor-pointer font-bold text-lg text-green-600 hover:underline dark:text-cyan-500"
