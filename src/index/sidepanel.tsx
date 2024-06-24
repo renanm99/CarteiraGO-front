@@ -1,38 +1,43 @@
 import { Button, Sidebar } from "flowbite-react";
 import { HiOutlineArrowLeftOnRectangle } from "react-icons/hi2";
 import {
-  HiArrowNarrowLeft,
-  HiArrowSmRight,
   HiChartPie,
   HiOutlineCurrencyDollar,
   HiUser,
   HiCurrencyDollar,
-  HiLogout,
 } from "react-icons/hi";
 
 export function Sidepanel() {
   async function Logout() {
-    const response = await fetch("http://localhost:8080/login", {
+    await fetch("http://localhost:8080/login", {
       method: "DELETE",
       mode: "cors",
       credentials: "include",
     });
     window.location.href = "/signin";
   }
+
   return (
-    <>
+    <div
+      id="all-side"
+      onMouseEnter={() => {
+        const sidebutton = document.getElementsByName("sidebutton")[0];
+        sidebutton.classList.toggle("translate-x-0");
+        const sideside = document.getElementsByName("sideside")[0];
+        sideside.classList.toggle("-translate-x-full");
+      }}
+      onMouseLeave={() => {
+        const sidebutton = document.getElementsByName("sidebutton")[0];
+        sidebutton.classList.toggle("translate-x-0");
+        const sideside = document.getElementsByName("sideside")[0];
+        sideside.classList.toggle("-translate-x-full");
+      }}
+    >
       <div
         name="sidebutton"
-        className="transition-transform z-50 md:invisible -translate-x-11 translate-y-24"
+        className="transition-transform -translate-x-40 z-50 lg:invisible translate-y-24"
       >
-        <Button
-          className="hover:translate-x-10"
-          onClick={() => {
-            let arr = document.getElementsByName("sideside")[0].classList;
-            arr.toggle("-translate-x-full");
-          }}
-          color="gray"
-        >
+        <Button className="w-44 items-end justify-end" color="gray">
           <svg
             className="translate-x-5 text-gray-800 dark:text-white"
             width="20"
@@ -53,7 +58,7 @@ export function Sidepanel() {
       <Sidebar
         name="sideside"
         aria-label="Default sidebar example"
-        className="transition-transform z-50 fixed translate-y-1/3 -translate-x-full md:translate-x-0 md:flex h-auto"
+        className="w-50 transition-transform z-50 fixed translate-y-1/3 -translate-x-full lg:translate-x-0 md:flex h-auto focus:-translate-x-full"
       >
         <Sidebar.Items>
           <Sidebar.ItemGroup>
@@ -93,6 +98,6 @@ export function Sidepanel() {
           </Sidebar.ItemGroup>
         </Sidebar.Items>
       </Sidebar>
-    </>
+    </div>
   );
 }

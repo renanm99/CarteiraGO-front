@@ -29,6 +29,7 @@ export function TableShowAccounts({ accountType }: { accountType: string }) {
     }
     fetchData();
   }, []);
+
   if (error) {
     return "error: " + error;
   }
@@ -252,8 +253,8 @@ export function TableShowAccounts({ accountType }: { accountType: string }) {
               />
               <datalist id="category-name">
                 {[...new Set(accounts.map((data) => data.Category))].map(
-                  (data) => {
-                    return <option value={data} />;
+                  (data, i) => {
+                    return <option key={"option-" + i} value={data} />;
                   }
                 )}
               </datalist>

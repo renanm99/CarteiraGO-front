@@ -1,6 +1,8 @@
 class Dashboard {
   Category: string = "";
   Value: number = 0.0;
+  Datetime: Date = new Date();
+  Type: string = "";
 }
 
 export class Account {

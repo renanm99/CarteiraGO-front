@@ -43,7 +43,7 @@ export function NewLogin() {
   }
 
   return (
-    <main className="min-h-screen flex-col items-center justify-between dark:bg-gray-900">
+    <main className="min-h-screen p-4 flex-col items-center justify-between dark:bg-gray-900">
       <div className="float-right">
         <DarkThemeToggle />
       </div>

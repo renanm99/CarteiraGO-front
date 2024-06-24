@@ -9,7 +9,7 @@ export function IncomesPage() {
           <Sidepanel />
         </div>
       </div>
-      <div className="md:block translate-x-0 md:translate-x-40 h-full md:w-10/12">
+      <div className="md:block translate-x-0 lg:translate-x-40 h-full w-11/12 md:w-full lg:w-10/12">
         {/*<TableShowAccounts accountType="expense" />*/}
         <TableShowAccounts accountType="incomes" />
         {/*

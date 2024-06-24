@@ -51,7 +51,7 @@ export function LoginInput() {
   }
 
   return (
-    <main className="min-h-screen flex-col items-center justify-between dark:bg-gray-900">
+    <main className="min-h-screen p-4 flex-col items-center justify-between dark:bg-gray-900">
       <div className="float-right">
         <DarkThemeToggle />
       </div>
@@ -84,7 +84,7 @@ export function LoginInput() {
               type="password"
               id="password"
               name="password"
-              className=" flex bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             />
             <span
