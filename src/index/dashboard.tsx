@@ -119,7 +119,7 @@ export function DashboardPage() {
           </div>
           <div
             id="dateRangeDropdown"
-            className="-invisible flex flex-row w-full translate-y-5"
+            className="invisible flex flex-row w-full translate-y-5"
           >
             <Datepicker
               id="clock1"

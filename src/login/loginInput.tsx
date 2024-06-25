@@ -1,13 +1,19 @@
-import { Alert, DarkThemeToggle } from "flowbite-react";
+import { Alert } from "flowbite-react";
 import { Navigation } from "./navigation";
-import { User, postLogin } from "../index/model/user";
+import { postLogin } from "../index/model/user";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useEffect } from "react";
 
 export function LoginInput() {
-  Checklgn();
+  useEffect(() => {
+    async function fetchData() {
+      await Checklgn();
+    }
+    fetchData();
+  });
 
   async function Checklgn() {
-    const response = await fetch("http://localhost:8080/signin", {
+    const response = await fetch("https://carteirago.rj.r.appspot.com/signin", {
       method: "GET",
       mode: "cors",
       credentials: "include",
@@ -52,9 +58,6 @@ export function LoginInput() {
 
   return (
     <main className="min-h-screen p-4 flex-col items-center justify-between dark:bg-gray-900">
-      <div className="float-right">
-        <DarkThemeToggle />
-      </div>
       <Navigation />
       <form
         className="max-w-sm mx-auto"

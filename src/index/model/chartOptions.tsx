@@ -7,6 +7,7 @@ export class chartOptions {
     height: 420,
     width: "100%",
     type: "pie",
+    id: "",
   };
   stroke: object = {
     colors: ["white"],

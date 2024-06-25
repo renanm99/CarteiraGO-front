@@ -34,9 +34,6 @@ export function PieChart({
       let total = 0;
       let totalCategory = 0;
 
-      const labels = [];
-      const series = [];
-
       const opt = Options;
       opt.chart.id = "pie-chart-" + accountType;
 

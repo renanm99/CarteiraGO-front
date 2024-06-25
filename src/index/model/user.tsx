@@ -4,10 +4,13 @@ export class User {
   Email: string = "";
   Password: string = "";
   Socialname: string = "";
-
+  Url: string = "";
+  constructor() {
+    this.Url = "https://carteirago.rj.r.appspot.com";
+  }
   async getAccounts(email: string, pass: string): Promise<User> {
     const response = await fetch(
-      `http://localhost:8080/login?email=${email}&password=${pass}`,
+      `${this.Url}/login?email=${email}&password=${pass}`,
       {
         method: "POST",
         mode: "cors",
@@ -18,7 +21,7 @@ export class User {
   }
 
   async postAccounts(user: User) {
-    const response = await fetch("http://localhost:8080/user", {
+    const response = await fetch(`${this.Url}/user`, {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(user),
@@ -27,7 +30,7 @@ export class User {
   }
 
   async updateAccounts(user: User) {
-    await fetch("http://localhost:8080/user", {
+    await fetch(`${this.Url}/user`, {
       method: "PUT",
       mode: "cors",
       body: JSON.stringify(user),
@@ -35,8 +38,7 @@ export class User {
   }
 
   async deleteAccounts(id: number) {
-    console.log(id);
-    await fetch("http://localhost:8080/user", {
+    await fetch(`${this.Url}/user`, {
       method: "DELETE",
       mode: "cors",
     });
@@ -46,7 +48,7 @@ export class User {
 //export const localStoragetoken = localStorage.getItem("user");
 
 export async function postLogin(email: string, password: string) {
-  const response = await fetch("http://localhost:8080/login", {
+  const response = await fetch("https://carteirago.rj.r.appspot.com/login", {
     method: "POST",
     mode: "cors",
     body: `{"Email":"${email}","Password":"${password}"}`,

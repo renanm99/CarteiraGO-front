@@ -9,7 +9,7 @@ import {
 
 export function Sidepanel() {
   async function Logout() {
-    await fetch("http://localhost:8080/login", {
+    await fetch("https://carteirago.rj.r.appspot.com/login", {
       method: "DELETE",
       mode: "cors",
       credentials: "include",

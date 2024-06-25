@@ -17,7 +17,7 @@ export class Account {
   Url: string = "";
   constructor(account: string) {
     this.Account = account;
-    this.Url = "http://localhost:8080/" + account;
+    this.Url = "https://carteirago.rj.r.appspot.com/" + account;
   }
 
   async getAccounts(): Promise<Account[]> {
@@ -63,7 +63,7 @@ export class Account {
   }
 
   async getDashboard(): Promise<Dashboard[]> {
-    const response = await fetch("http://localhost:8080/Dash", {
+    const response = await fetch("https://carteirago.rj.r.appspot.com/Dash", {
       method: "GET",
       mode: "cors",
       credentials: "include",
