@@ -9,7 +9,7 @@ import {
 
 export function Sidepanel() {
   async function Logout() {
-    await fetch("https://carteirago.rj.r.appspot.com/login", {
+    await fetch("https://banded-arcana-428116-d2.uc.r.appspot.com/login", {
       method: "DELETE",
       mode: "cors",
       credentials: "include",

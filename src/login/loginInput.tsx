@@ -13,47 +13,44 @@ export function LoginInput() {
   });
 
   async function Checklgn() {
-    const response = await fetch("https://carteirago.rj.r.appspot.com/signin", {
-      method: "GET",
-      mode: "cors",
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://banded-arcana-428116-d2.uc.r.appspot.com/signin",
+      {
+        method: "GET",
+        mode: "cors",
+        credentials: "include",
+      }
+    );
+    if (response.status === 200) {
+      window.location.href = "/";
+    }
     /*
     if (response.status === 401) {
       window.location.href = "/signin";
     }
       */
-
-    if (response.status === 200) {
-      window.location.href = "/";
-    }
   }
 
   async function Login(event) {
     event.preventDefault();
-    if (
-      localStorage.getItem("user") === "" ||
-      localStorage.getItem("user") === null
-    ) {
-      const dados = new FormData(event.target);
+    const dados = new FormData(event.target);
 
-      // Do a bit of work to convert the entries to a plain JS object
-      const value = Object.fromEntries(dados.entries());
+    // Do a bit of work to convert the entries to a plain JS object
+    const value = Object.fromEntries(dados.entries());
 
-      const ok = await postLogin(
-        value.email.toString(),
-        value.password.toString()
-      );
-      if (!ok) {
-        const alert = document.getElementsByName("alert-warning")[0];
-        if (alert.classList.contains("hidden")) {
-          alert.classList.toggle("hidden");
-        }
-      } else {
-        window.location.href = "/";
+    const ok = await postLogin(
+      value.email.toString(),
+      value.password.toString()
+    );
+    if (!ok) {
+      const alert = document.getElementsByName("alert-warning")[0];
+      if (alert.classList.contains("hidden")) {
+        alert.classList.toggle("hidden");
       }
-      return;
+    } else {
+      window.location.href = "/";
     }
+    return;
   }
 
   return (
@@ -92,7 +89,7 @@ export function LoginInput() {
             />
             <span
               className="flex items-center -translate-x-8"
-              onClick={(e) => {
+              onClick={() => {
                 const pass = document.getElementsByName("password")[0];
                 const eye = document.getElementsByName("eye")[0];
                 const neye = document.getElementsByName("neye")[0];

@@ -7,6 +7,7 @@ import { LoginInput } from "./login/loginInput";
 import { ExpensesPage } from "./index/expensesPage";
 import { IncomesPage } from "./index/incomesPage";
 import { DashboardPage } from "./index/dashboard";
+import { Soon } from "./soon";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <NewLogin />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/seeya",
+    element: <Soon />,
     errorElement: <ErrorPage />,
   },
 ]);
