@@ -17,7 +17,7 @@ export class Account {
   Url: string = "";
   constructor(account: string) {
     this.Account = account;
-    this.Url = "https://banded-arcana-428116-d2.uc.r.appspot.com/" + account;
+    this.Url = "http://carteirago.onrender.com/" + account;
   }
 
   async getAccounts(): Promise<Account[]> {
@@ -63,15 +63,12 @@ export class Account {
   }
 
   async getDashboard(): Promise<Dashboard[]> {
-    const response = await fetch(
-      "https://banded-arcana-428116-d2.uc.r.appspot.com/Dash",
-      {
-        method: "GET",
-        mode: "cors",
-        credentials: "include",
-        headers: { Account: this.Account },
-      }
-    );
+    const response = await fetch("http://carteirago.onrender.com/Dash", {
+      method: "GET",
+      mode: "cors",
+      credentials: "include",
+      headers: { Account: this.Account },
+    });
     const data = await response.json();
     if (response.status === 401) {
       window.location.href = "/signin";

@@ -13,14 +13,11 @@ export function LoginInput() {
   });
 
   async function Checklgn() {
-    const response = await fetch(
-      "https://banded-arcana-428116-d2.uc.r.appspot.com/signin",
-      {
-        method: "GET",
-        mode: "cors",
-        credentials: "include",
-      }
-    );
+    const response = await fetch("http://carteirago.onrender.com/signin", {
+      method: "GET",
+      mode: "cors",
+      credentials: "include",
+    });
     if (response.status === 200) {
       window.location.href = "/";
     }

@@ -6,7 +6,7 @@ export class User {
   Socialname: string = "";
   Url: string = "";
   constructor() {
-    this.Url = "https://banded-arcana-428116-d2.uc.r.appspot.com";
+    this.Url = "http://carteirago.onrender.com";
   }
   async getAccounts(email: string, pass: string): Promise<User> {
     const response = await fetch(
@@ -49,7 +49,7 @@ export class User {
 
 export async function postLogin(email: string, password: string) {
   const response = await fetch(
-    "https://banded-arcana-428116-d2.uc.r.appspot.com/login",
+    "http://carteirago.onrender.com/login",
     {
       method: "POST",
       mode: "cors",
