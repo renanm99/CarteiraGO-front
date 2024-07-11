@@ -9,7 +9,7 @@ import {
 
 export function Sidepanel() {
   async function Logout() {
-    await fetch("http://carteirago.onrender.com/login", {
+    await fetch("https://carteirago.onrender.com/login", {
       method: "DELETE",
       mode: "cors",
       credentials: "include",

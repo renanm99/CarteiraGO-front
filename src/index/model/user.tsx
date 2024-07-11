@@ -6,7 +6,7 @@ export class User {
   Socialname: string = "";
   Url: string = "";
   constructor() {
-    this.Url = "http://carteirago.onrender.com";
+    this.Url = "https://carteirago.onrender.com";
   }
   async getAccounts(email: string, pass: string): Promise<User> {
     const response = await fetch(
@@ -48,15 +48,12 @@ export class User {
 //export const localStoragetoken = localStorage.getItem("user");
 
 export async function postLogin(email: string, password: string) {
-  const response = await fetch(
-    "http://carteirago.onrender.com/login",
-    {
-      method: "POST",
-      mode: "cors",
-      body: `{"Email":"${email}","Password":"${password}"}`,
-      credentials: "include",
-    }
-  );
+  const response = await fetch("https://carteirago.onrender.com/login", {
+    method: "POST",
+    mode: "cors",
+    body: `{"Email":"${email}","Password":"${password}"}`,
+    credentials: "include",
+  });
   const token = await response.json();
   if (token["code"] === 200) {
     //localStorage.setItem("user", email);

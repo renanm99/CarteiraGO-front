@@ -17,7 +17,7 @@ export class Account {
   Url: string = "";
   constructor(account: string) {
     this.Account = account;
-    this.Url = "http://carteirago.onrender.com/" + account;
+    this.Url = "https://carteirago.onrender.com/" + account;
   }
 
   async getAccounts(): Promise<Account[]> {
@@ -63,7 +63,7 @@ export class Account {
   }
 
   async getDashboard(): Promise<Dashboard[]> {
-    const response = await fetch("http://carteirago.onrender.com/Dash", {
+    const response = await fetch("https://carteirago.onrender.com/Dash", {
       method: "GET",
       mode: "cors",
       credentials: "include",
