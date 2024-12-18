@@ -7,9 +7,11 @@ import {
   HiCurrencyDollar,
 } from "react-icons/hi";
 
+import { URL_APP } from "../main";
+
 export function Sidepanel() {
   async function Logout() {
-    await fetch("https://carteirago.onrender.com/login", {
+    await fetch(URL_APP + "/login", {
       method: "DELETE",
       mode: "cors",
       credentials: "include",

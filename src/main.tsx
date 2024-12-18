@@ -8,6 +8,7 @@ import { ExpensesPage } from "./index/expensesPage";
 import { IncomesPage } from "./index/incomesPage";
 import { DashboardPage } from "./index/dashboard";
 import { Soon } from "./soon";
+export const URL_APP = import.meta.env.DEV ? "http://localhost:8080" : "https://api.renanmachado.dev.br"
 
 const router = createBrowserRouter([
   {

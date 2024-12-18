@@ -21,7 +21,7 @@ export function DashboardPage() {
   const [chartItensIncomes, setItensIncomes] = useState<Dashboard[]>([]);
 
   useEffect(() => {
-    if ((chartItensExpenses.length === 0) & (chartItensIncomes.length === 0)) {
+    if ((chartItensExpenses.length === 0) && (chartItensIncomes.length === 0)) {
       async function fetchData() {
         const expenses = await new Account("expenses").getDashboard();
         setItensExpenses(expenses);

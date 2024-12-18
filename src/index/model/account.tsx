@@ -1,3 +1,5 @@
+import { URL_APP } from "../../main";
+
 class Dashboard {
   Category: string = "";
   Value: number = 0.0;
@@ -17,7 +19,7 @@ export class Account {
   Url: string = "";
   constructor(account: string) {
     this.Account = account;
-    this.Url = "https://carteirago.onrender.com/" + account;
+    this.Url = URL_APP + "/" + account;
   }
 
   async getAccounts(): Promise<Account[]> {
@@ -63,7 +65,7 @@ export class Account {
   }
 
   async getDashboard(): Promise<Dashboard[]> {
-    const response = await fetch("https://carteirago.onrender.com/Dash", {
+    const response = await fetch(URL_APP + "/Dash", {
       method: "GET",
       mode: "cors",
       credentials: "include",

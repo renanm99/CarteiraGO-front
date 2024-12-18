@@ -3,6 +3,7 @@ import { Navigation } from "./navigation";
 import { postLogin } from "../index/model/user";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useEffect } from "react";
+import { URL_APP } from "../main";
 
 export function LoginInput() {
   useEffect(() => {
@@ -13,7 +14,7 @@ export function LoginInput() {
   });
 
   async function Checklgn() {
-    const response = await fetch("https://carteirago.onrender.com/signin", {
+    const response = await fetch(URL_APP + "/signin", {
       method: "GET",
       mode: "cors",
       credentials: "include",
